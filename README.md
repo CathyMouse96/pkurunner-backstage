@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # pku-runner-backstage
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
@@ -16,3 +17,7 @@ Run `grunt` for building and `grunt serve` for preview.
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
+=======
+# pkurunner-backstage
+Backstage for PKURunner
+>>>>>>> 4db5ef09e8e6c8b51da1deb3ad506f3b79c1497c

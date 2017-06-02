@@ -1,19 +1,37 @@
 <div class="container" ng-controller="AdminCtrl">
-<div class="jumbotron">
-  <h1>Welcome in, friends!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    This website supported by Yeoman!
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+    <!-- Display User Database -->
+    <div class="col-xs-12" ng-if="!showTableB">
+        <h3>{{messageB}}</h3>
+    </div>
+    <div class="col-xs-12" ng-if="showTableB">
+        <table id="userTable" class="table table-striped">
+            <caption>用户列表</caption>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>学号</th>
+                    <th>性别</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.id}}</td>
+                    <td ng-switch on="user.sex">
+                        <span ng-switch-default>未知</span>
+                        <span ng-switch-when="1">男</span>
+                        <span ng-switch-when="2">女</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     
-    
+    <!-- Display Record Database -->
     <div class="col-xs-12" ng-if="!showTable">
         <h3>{{message}}</h3>
     </div>
     <div class="col-xs-12" ng-if="showTable">
-    
         <table class="table table-hover">
             <caption>Record Database</caption>
             <thead>
@@ -43,34 +61,13 @@
                 </tr>
             </tbody>
         </table>
-    
     </div>
-    
-    <div class="col-xs-12" ng-if="!showTableB">
-        <h3>{{messageB}}</h3>
-    </div>
-    <div class="col-xs-12" ng-if="showTableB">
-    
-        <table class="table table-hover">
-            <caption>User Database</caption>
-            <thead>
-                <tr>
-                    <th>name</th>
-                    <th>id</th>
-                    <th>sex</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="user in users">
-                    <td>{{user.name}}</td>
-                    <td>{{user.id}}</td>
-                    <td>{{user.sex}}</td>
-                </tr>
-            </tbody>
-        </table>
-    
-    </div>
-
-    
-
 </div>
+
+<script>
+$(document).ready(function(){
+    $('#userTable').dataTable({
+        "createdRow": function
+    });
+});
+</script>
